@@ -14,5 +14,49 @@ class frontendcontroller extends Controller
     {
         return view ('shop');
     }
+    public function return()
+    {
+        return view ('return');
+    }
+    public function categoryProducts()
+    {
+        return view ('categoryproducts');
+    }
+    public function subCategoryProducts()
+    {
+        return view ('subcategoryproducts');
+    }
 
+    public function checkout()
+    {
+        return view ('checkout');
+    }
+    public function viewCart()
+    {
+        return view ('viewcart');
+    }
+    public function privacyPolicy()
+    {
+        return view ('privacypolicy');
+    }
+    public function termsConditions()
+    {
+        return view ('termsconditions');
+    }
+    public function refundPolicy()
+    {
+        return view ('refundpolicy');
+    }
+    public function paymentPolicy()
+    {
+        return view ('paymentpolicy');
+    }
+    public function aboutUs()
+    {
+        return view ('aboutus');
+    }
+    public function contactUs()
+    {
+        return view ('contactus');
+    }
 }
