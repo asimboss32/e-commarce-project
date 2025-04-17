@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\frontendcontroller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 
@@ -21,3 +22,7 @@ Route:: get('/refund-policy',[frontendcontroller::class,'refundPolicy']);
 Route:: get('/payment-policy',[frontendcontroller::class,'paymentPolicy']);
 Route:: get('/about-us',[frontendcontroller::class,'aboutUs']);
 Route:: get('/contact-us',[frontendcontroller::class,'contactUs']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
