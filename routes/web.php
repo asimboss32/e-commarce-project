@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Backend\Admincontroller;
+use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\frontendcontroller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +26,13 @@ Route:: get('/payment-policy',[frontendcontroller::class,'paymentPolicy']);
 Route:: get('/about-us',[frontendcontroller::class,'aboutUs']);
 Route:: get('/contact-us',[frontendcontroller::class,'contactUs']);
 
-Auth::routes();
+//Admin login
+Route::get('/admin/login',[Admincontroller::class,'adminlogin']);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Auth::routes();
+Route::get('/admin/dashboard',[DashboardController::class,'admindashboard']);
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin/logout',[Admincontroller::class,'adminlogout']);
+
+// Categories
+Route::get('/admin/CategoryList',[CategoryController::class,'categorylist']);
