@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\Admincontroller;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\subController;
 use App\Http\Controllers\frontendcontroller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -36,3 +37,13 @@ Route::get('/admin/logout',[Admincontroller::class,'adminlogout']);
 
 // Categories
 Route::get('/admin/CategoryList',[CategoryController::class,'categorylist']);
+Route::get('/admin/CategoryCreate',[CategoryController::class,'categorycreate']);
+Route::post('/admin/CategoryStore',[CategoryController::class,'categorystore']);
+Route::get('/admin/Category/Delete{id}',[CategoryController::class,'categorydelete']);
+Route::get('/admin/Category/Edite{id}',[CategoryController::class,'categoryedite']);
+Route::post('/admin/Category/Update{id}',[CategoryController::class,'categoryupdate']);
+
+//subcategories
+Route::get('/admin/Sub-Category/List',[subController::class,'subcategorylist']);
+Route::get('/admin/Sub-Category/Create',[subController::class,'subCategoryCreate']);
+Route::post('/admin/Sub-Category/Store',[subController::class,'subCategoryStore']);
