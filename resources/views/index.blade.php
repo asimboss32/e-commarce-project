@@ -84,7 +84,7 @@
 				<h1 class="title">
 					Hot Products
 				</h1>
-				<a href="type-products.html" class="product-view-all-btn">
+				<a href="{{url('/View-All')}}" class="product-view-all-btn">
 					View All
 				</a>
 			</div>
@@ -95,7 +95,7 @@
 							<img src="{{asset('/assets/images/product.png')}}" alt="Product Image" />
 						</a>
 						<div class="product__item-add-cart-btn-outer">
-							<a href="details.html" class="product__item-add-cart-btn-inner">
+							<a href="{{url('/Product-Details')}}" class="product__item-add-cart-btn-inner">
 								Add to Cart
 							</a>
 						</div>
@@ -121,11 +121,11 @@
 				</div>
 				<div class="product__item-outer">
 					<div class="product__item-image-outer">
-						<a href="details.html" class="product__item-image-inner">
+						<a href="{{url('/Product-Details')}}" class="product__item-image-inner">
 							<img src="{{asset('/assets/images/product.png')}}" alt="Product Image" />
 						</a>
 						<div class="product__item-add-cart-btn-outer">
-							<a href="details.html" class="product__item-add-cart-btn-inner">
+							<a href="{{url('/Product-Details')}}" class="product__item-add-cart-btn-inner">
 								Add to Cart
 							</a>
 						</div>
@@ -151,11 +151,11 @@
 				</div>
 				<div class="product__item-outer">
 					<div class="product__item-image-outer">
-						<a href="details.html" class="product__item-image-inner">
+						<a href="{{url('/Product-Details')}}" class="product__item-image-inner">
 							<img src="{{asset('/assets/images/product.png')}}" alt="Product Image" />
 						</a>
 						<div class="product__item-add-cart-btn-outer">
-							<a href="details.html" class="product__item-add-cart-btn-inner">
+							<a href="{{url('/Product-Details')}}" class="product__item-add-cart-btn-inner">
 								Add to Cart
 							</a>
 						</div>
@@ -190,18 +190,18 @@
 				<h1 class="title">
 					New Arrival
 				</h1>
-				<a href="type-products.html" class="product-view-all-btn">
+				<a href="{{url('/View-All')}}" class="product-view-all-btn">
 					View All
 				</a>
 			</div>
 			<div class="product-items-wrapper">
 				<div class="product__item-outer">
 					<div class="product__item-image-outer">
-						<a href="details.html" class="product__item-image-inner">
+						<a href="{{url('/Product-Details')}}" class="product__item-image-inner">
 							<img src="{{asset('/assets/images/product1.jpg')}}" alt="Product Image" />
 						</a>
 						<div class="product__item-add-cart-btn-outer">
-							<a href="details.html" class="product__item-add-cart-btn-inner">
+							<a href="{{url('/Product-Details')}}" class="product__item-add-cart-btn-inner">
 								Add to Cart
 							</a>
 						</div>
@@ -227,11 +227,11 @@
 				</div>
 				<div class="product__item-outer">
 					<div class="product__item-image-outer">
-						<a href="details.html" class="product__item-image-inner">
+						<a href="{{url('/Product-Details')}}" class="product__item-image-inner">
 							<img src="{{asset('/assets/images/product.png')}}" alt="Product Image" />
 						</a>
 						<div class="product__item-add-cart-btn-outer">
-							<a href="details.html" class="product__item-add-cart-btn-inner">
+							<a href="{{url('/Product-Details')}}" class="product__item-add-cart-btn-inner">
 								Add to Cart
 							</a>
 						</div>
@@ -257,11 +257,11 @@
 				</div>
 				<div class="product__item-outer">
 					<div class="product__item-image-outer">
-						<a href="details.html" class="product__item-image-inner">
+						<a href="{{url('/Product-Details')}}" class="product__item-image-inner">
 							<img src="{{asset('/assets/images/product.png')}}" alt="Product Image" />
 						</a>
 						<div class="product__item-add-cart-btn-outer">
-							<a href="details.html" class="product__item-add-cart-btn-inner">
+							<a href="{{url('/Product-Details')}}" class="product__item-add-cart-btn-inner">
 								Add to Cart
 							</a>
 						</div>
@@ -296,18 +296,18 @@
 				<h1 class="title">
 					Regular Products
 				</h1>
-				<a href="type-products.html" class="product-view-all-btn">
+				<a href="{{url('/View-All')}}" class="product-view-all-btn">
 					View All
 				</a>
 			</div>
 			<div class="product-items-wrapper">
 				<div class="product__item-outer">
 					<div class="product__item-image-outer">
-						<a href="details.html" class="product__item-image-inner">
+						<a href="{{url('/Product-Details')}}" class="product__item-image-inner">
 							<img src="{{asset('/assets/images/product.png')}}" alt="Product Image" />
 						</a>
 						<div class="product__item-add-cart-btn-outer">
-							<a href="details.html" class="product__item-add-cart-btn-inner">
+							<a href="{{url('/Product-Details')}}" class="product__item-add-cart-btn-inner">
 								Add to Cart
 							</a>
 						</div>
@@ -333,11 +333,11 @@
 				</div>
 				<div class="product__item-outer">
 					<div class="product__item-image-outer">
-						<a href="details.html" class="product__item-image-inner">
+						<a href="{{url('/Product-Details')}}" class="product__item-image-inner">
 							<img src="{{asset('/assets/images/product.png')}}" alt="Product Image" />
 						</a>
 						<div class="product__item-add-cart-btn-outer">
-							<a href="details.html" class="product__item-add-cart-btn-inner">
+							<a href="{{url('/Product-Details')}}" class="product__item-add-cart-btn-inner">
 								Add to Cart
 							</a>
 						</div>
@@ -363,11 +363,11 @@
 				</div>
 				<div class="product__item-outer">
 					<div class="product__item-image-outer">
-						<a href="details.html" class="product__item-image-inner">
+						<a href="{{url('/Product-Details')}}" class="product__item-image-inner">
 							<img src="{{asset('/assets/images/product.png')}}" alt="Product Image" />
 						</a>
 						<div class="product__item-add-cart-btn-outer">
-							<a href="details.html" class="product__item-add-cart-btn-inner">
+							<a href="{{url('/Product-Details')}}" class="product__item-add-cart-btn-inner">
 								Add to Cart
 							</a>
 						</div>
@@ -402,18 +402,18 @@
 				<h1 class="title">
 					Discount Products
 				</h1>
-				<a href="type-products.html" class="product-view-all-btn">
+				<a href="{{url('/View-All')}}" class="product-view-all-btn">
 					View All
 				</a>
 			</div>
 			<div class="product-items-wrapper">
 				<div class="product__item-outer">
 					<div class="product__item-image-outer">
-						<a href="details.html" class="product__item-image-inner">
+						<a href="{{url('/Product-Details')}}" class="product__item-image-inner">
 							<img src="{{asset('/assets/images/product1.jpg')}}" alt="Product Image" />
 						</a>
 						<div class="product__item-add-cart-btn-outer">
-							<a href="details.html" class="product__item-add-cart-btn-inner">
+							<a href="{{asset('/assets/images/product1.jpg')}}" class="product__item-add-cart-btn-inner">
 								Add to Cart
 							</a>
 						</div>
@@ -439,11 +439,11 @@
 				</div>
 				<div class="product__item-outer">
 					<div class="product__item-image-outer">
-						<a href="details.html" class="product__item-image-inner">
+						<a href="{{asset('/assets/images/product1.jpg')}}" class="product__item-image-inner">
 							<img src="{{asset('/assets/images/product.png')}}" alt="Product Image" />
 						</a>
 						<div class="product__item-add-cart-btn-outer">
-							<a href="details.html" class="product__item-add-cart-btn-inner">
+							<a href="{{asset('/assets/images/product1.jpg')}}" class="product__item-add-cart-btn-inner">
 								Add to Cart
 							</a>
 						</div>
@@ -469,11 +469,11 @@
 				</div>
 				<div class="product__item-outer">
 					<div class="product__item-image-outer">
-						<a href="details.html" class="product__item-image-inner">
+						<a href="{{asset('/assets/images/product1.jpg')}}" class="product__item-image-inner">
 							<img src="{{asset('/assets/images/product.png')}}" alt="Product Image" />
 						</a>
 						<div class="product__item-add-cart-btn-outer">
-							<a href="details.html" class="product__item-add-cart-btn-inner">
+							<a href="{{asset('/assets/images/product1.jpg')}}" class="product__item-add-cart-btn-inner">
 								Add to Cart
 							</a>
 						</div>

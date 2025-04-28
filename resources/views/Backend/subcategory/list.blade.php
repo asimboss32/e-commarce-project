@@ -7,12 +7,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>DataTables</h1>
+                        <h1>Sub-Categories</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active">DataTables</li>
+                            <li class="breadcrumb-item active">Sub-Categories</li>
                         </ol>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">DataTable with default features</h3>
+                                <h3 class="card-title">Sub-Category List</h3>
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -55,7 +55,7 @@
                                     <td> {{$subcategory->name}} </td>
                                     
                                     <td>
-                                        {{$subcategory->category->name}}
+                                        {{ $subcategory->category ? $subcategory->category->name : 'No Category' }}
                                     </td>
                                     <td>
                                         <a href="" class="btn btn-primary">Edit</a>

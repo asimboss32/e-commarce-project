@@ -18,6 +18,8 @@ Route:: get('/category-products',[frontendcontroller::class,'categoryProducts'])
 Route:: get('/sub-category-products',[frontendcontroller::class,'subCategoryProducts']);
 Route:: get('/checkout',[frontendcontroller::class,'checkout']);
 Route:: get('/view-cart',[frontendcontroller::class,'viewCart']);
+Route:: get('/Product-Details',[frontendcontroller::class,'productDetails']);
+Route:: get('/View-All',[frontendcontroller::class,'viewAll']);
 
 //policy
 Route:: get('/privacy-policy',[frontendcontroller::class,'privacyPolicy']);

@@ -59,4 +59,12 @@ class frontendcontroller extends Controller
     {
         return view ('contactus');
     }
+    public function productDetails()
+    {
+        return view ('details');
+    }
+    public function viewAll()
+    {
+        return view ('viewall');
+    }
 }
