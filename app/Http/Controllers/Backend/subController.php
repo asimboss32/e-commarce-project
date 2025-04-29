@@ -32,4 +32,29 @@ class subController extends Controller
     //    dd($subcategory);
         return redirect('/admin/Sub-Category/List');
     }
+    public function subCategoryEdite($id)
+    {
+        $subcategory = SubCategory:: find($id);
+        $categories = Category::orderBy('name','asc')-> get();
+        
+        return view('Backend.subcategory.edite',compact('subcategory','categories'));
+    }
+    public function subCategoryUpdate(Request $request,$id)
+    {
+        $subcategory = SubCategory:: find($id);
+        $subcategory->cate_id = $request->cate_id;
+        $subcategory->name = $request->name;
+        $subcategory->slug = Str::slug($request->name);  
+
+        $subcategory->save();
+        return redirect('/admin/Sub-Category/List');
+    }
+    public function subCategoryDelete($id)
+    {
+        $subcategory = SubCategory:: find($id);
+        
+        $subcategory->delete();
+        return redirect()->back();
+    }
+    
 }

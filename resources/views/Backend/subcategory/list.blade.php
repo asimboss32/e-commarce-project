@@ -58,8 +58,8 @@
                                         {{ $subcategory->category ? $subcategory->category->name : 'No Category' }}
                                     </td>
                                     <td>
-                                        <a href="" class="btn btn-primary">Edit</a>
-                                        <a href=""onclick="return confirm('Are you sure?')" class="btn btn-danger">Delete</a>
+                                        <a href="{{url('/admin/Sub-Category/Edite/'.$subcategory->id)}}" class="btn btn-primary">Edite</a>
+                                        <a href="{{url('/admin/Sub-Category/Delete/'.$subcategory->id)}}"onclick="return confirm('Are you sure?')" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
                                    @endforeach

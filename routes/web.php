@@ -41,11 +41,14 @@ Route::get('/admin/logout',[Admincontroller::class,'adminlogout']);
 Route::get('/admin/CategoryList',[CategoryController::class,'categorylist']);
 Route::get('/admin/CategoryCreate',[CategoryController::class,'categorycreate']);
 Route::post('/admin/CategoryStore',[CategoryController::class,'categorystore']);
-Route::get('/admin/Category/Delete{id}',[CategoryController::class,'categorydelete']);
-Route::get('/admin/Category/Edite{id}',[CategoryController::class,'categoryedite']);
-Route::post('/admin/Category/Update{id}',[CategoryController::class,'categoryupdate']);
+Route::get('/admin/Category/Delete/{id}',[CategoryController::class,'categorydelete']);
+Route::get('/admin/Category/Edite/{id}',[CategoryController::class,'categoryedite']);
+Route::post('/admin/Category/Update/{id}',[CategoryController::class,'categoryupdate']);
 
 //subcategories
 Route::get('/admin/Sub-Category/List',[subController::class,'subcategorylist']);
 Route::get('/admin/Sub-Category/Create',[subController::class,'subCategoryCreate']);
 Route::post('/admin/Sub-Category/Store',[subController::class,'subCategoryStore']);
+Route::get('/admin/Sub-Category/Edite/{id}',[subController::class,'subCategoryEdite']);
+Route::post('/admin/Sub-Category/Update/{id}',[subController::class,'subCategoryUpdate']);
+Route::get('/admin/Sub-Category/Delete/{id}',[subController::class,'subCategoryDelete']);
