@@ -9,43 +9,52 @@
                         <div class="col-lg-7 col-md-7">
                             <div class="product-images-slider-outer">
                                 <div class="slider slider-content">
-                                    <div>
-                                        <img src="./assets/images/product.png" alt="slider images">
-                                    </div>
+                                    @foreach ($product->galleryimage as $image)
+                                       <div>
+                                        <img src="{{asset('backend/images/galleryimage/'.$image->image)}}" alt="slider images">
+                                    </div> 
+                                    @endforeach
                                 </div>
                                 <div class="slider slider-thumb">
-                                    <div>
-                                        <img src="./assets/images/product.png" alt="slider images">
-                                    </div>
+                                    @foreach ($product->galleryimage as $image)
+                                       <div>
+                                        <img src="{{asset('backend/images/galleryimage/'.$image->image)}}" alt="slider images">
+                                    </div> 
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-5 col-md-5">
                             <div class="product-details-content">
                                 <h3 class="product-name">
-                                    Test Product
+                                    {{$product->name}}
                                 </h3>
                                 <div class="product-price">
-                                    <span>300 Tk.</span>
+                                    <span>{{$product->discount_price}}</span>
                                     <span class="" style="color: #f74b81;">
-                                        <del>400 Tk.</del>
+                                        <del>{{$product->reguler_price}}</del>
                                     </span>
                                 </div>
-                                <div class="product-details-select-items-wrap">
-                                    <div class="product-details-select-item-outer">
-                                        <input type="radio" name="color" id="color" value="Red" class="category-item-radio">
+                                
+                                
+                                <form action="" method="POST"><div class="product-details-select-items-wrap">
+                                    @foreach ($product->color as $colorName)
+                                        <div class="product-details-select-item-outer">
+                                        <input type="radio" name="color" id="color" value="{{$colorName->name}}" class="category-item-radio">
                                         <label for="color" class="category-item-label">
-                                            Red
+                                            {{$colorName->name}}
                                         </label>
                                     </div>
+                                    @endforeach
                                 </div>
-                                <div class="product-details-select-items-wrap">
-                                    <div class="product-details-select-item-outer">
-                                        <input type="radio" name="size" value="XXl" class="category-item-radio">
-                                        <label for="size" class="category-item-label">XXl</label>
+                                 <div class="product-details-select-items-wrap">
+                                        @foreach ($product->size as $sizeName)
+                                        <div class="product-details-select-item-outer">
+                                            <input type="radio" name="size" value="{{$sizeName->name}}" class="category-item-radio">
+                                            <label for="size" class="category-item-label">{{$sizeName->name}}</label>
+                                        </div>
+                                        @endforeach
                                     </div>
-                                </div>
-                                <form action="" method="POST">
                                     <div class="purchase-info-outer">
                                         <div class="product-incremnt-decrement-outer" style="display: block">
                                             <a title="Decrement" class="decrement-btn" style="margin-top: -10px;">
@@ -95,34 +104,54 @@
                         </ul>
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis minus, ut unde laudantium accusamus odio nam officia aperiam excepturi quis nesciunt eveniet eligendi, corrupti voluptatibus. Similique doloremque velit optio aliquam.
+                              {!!$product->description!!}
                             </div>
                             <div class="tab-pane fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
-                                <div class="review-item-wrapper">
+                               @foreach ($product->review as $data )
+                                  <div class="review-item-wrapper">
                                     <div class="review-item-left">
-                                        <i class="fas fa-user"></i>
+                                        {{-- <i class="fas fa-user"></i> --}}
+                                        <img src="{{asset('Backend/images/Review/'.$data->image)}}" height="50" width="50">
                                     </div>
                                     <div class="review-item-right">
                                         <h4 class="review-author-name">
-                                            Saidul Islam 
+                                            {{$data->customer_name}} 
                                             <span class=" d-inline bg-danger badge-sm badge text-white">Verified</span>
                                         </h4>
                                         <p class="review-item-message">
-                                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis minus, ut unde laudantium accusamus odio nam officia aperiam excepturi quis nesciunt eveniet eligendi.
+                                            {{$data->message}}
                                         </p>
                                         <span class="review-item-rating-stars">
+                                           @if ($data->rating == 5)
+                                              <i class="fa-star fas"></i>
                                             <i class="fa-star fas"></i>
                                             <i class="fa-star fas"></i>
                                             <i class="fa-star fas"></i>
                                             <i class="fa-star fas"></i>
+                                             @elseif ($data->rating == 4)  
+                                              <i class="fa-star fas"></i>
                                             <i class="fa-star fas"></i>
+                                            <i class="fa-star fas"></i>
+                                            <i class="fa-star fas"></i>
+                                             @elseif ($data->rating == 3)  
+                                              <i class="fa-star fas"></i>
+                                            <i class="fa-star fas"></i>
+                                            <i class="fa-star fas"></i>
+                                             @elseif ($data->rating == 2)  
+                                              <i class="fa-star fas"></i>
+                                            <i class="fa-star fas"></i>
+                                            @elseif ($data->rating == 1)  
+                                              <i class="fa-star fas"></i>
+                                            
+                                           @endif 
+                                         
                                         </span>
                                     </div>
-                                </div>
+                                </div>  
+                               @endforeach
                             </div>
                             <div class="tab-pane fade" id="pills-policy" role="tabpanel" aria-labelledby="pills-policy-tab">
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis minus,
-                                ut unde laudantium accusamus odio nam officia aperiam excepturi quis nesciunt eveniet eligendi
+                               {!!$product->policy!!}
                             </div>
                         </div>
                     </div>
@@ -134,9 +163,11 @@
                         <h3 class="product-details-title">
                             Category
                         </h3>
-                        <a href="#" class="category-item-outer">
-                            <img src="./assets/images/product.png" alt="category image">
-                            Test Category
+                        @foreach ($categories as $category )
+                            <a href="{{url('/category-products/'.$category->id)}}" class="category-item-outer">
+                            <img src="{{asset('Backend/images/category/'.$category->image)}}" alt="category image">
+                            {{$category->name}}
+                        @endforeach
                         </a>
                     </div>
                 </div>
