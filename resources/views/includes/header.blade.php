@@ -18,35 +18,45 @@
                     <div class="header-top-right-item-link">
                         <span class="icon-outer">
                             <i class="fas fa-cart-plus"></i>
-                            <span class="count-number">1</span>
+                            <span class="count-number">{{$cartCount}}</span>
                         </span>
                         Cart
                     </div>
                     <div class="cart-items-wrapper">
-                        <div class="cart-items-outer">
-                            <div class="cart-item-outer">
+                     <div class="cart-items-outer">
+                        @php
+                             $totalCartPrice = 0;
+                        @endphp
+                             @foreach ($cartProducts as $cart)
+                             @php
+                                 $totalCartPrice = $totalCartPrice+$cart->qty*$cart->price
+                             @endphp
+
+                             <div class="cart-item-outer">
                                 <a href="#" class="cart-product-image">
-                                    <img src="{{asset('/assets/images/product.png')}}" alt="product">
+                                    <img src="{{asset('backend/images/products/'.$cart->product->image)}}" alt="product">
                                 </a>
                                 <div class="cart-product-name-price">
                                     <a href="#" class="product-name">
-                                        Test Product
+                                     {{$cart->product->name}}
                                     </a>
                                     <span class="product-price">
-                                        ৳ 300
+                                        {{$cart->price}}
                                     </span>
                                 </div>
                                 <div class="cart-item-delete">
-                                    <a href="#" class="delete-btn">
+                                    <a href="{{url('/cart-Delete/'.$cart->id)}}" class="delete-btn">
                                         <i class="fas fa-trash-alt"></i>
                                     </a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="shopping-cart-footer">
+
+                              @endforeach
+                        </div> 
+                       <div class="shopping-cart-footer">
                             <div class="shopping-cart-total">
                                 <h4>
-                                    Total <span>৳ 300</span>
+                                    Total <span>{{$totalCartPrice}}</span>
                                 </h4>
                             </div>
                             <div class="shopping-cart-button">
@@ -55,6 +65,7 @@
                             </div>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -70,19 +81,24 @@
                         </div>
                         <div class="header__category-items-outer">
                             <ul class="header__category-list">
-                                <li class="header__category-list-item item-has-submenu">
-                                    <a href="{{url('/category-products')}}" class="header__category-list-item-link">
-                                        <img src="{{asset('/assets/images/product.png')}}" alt="category">
-                                        Test Category
+                               @foreach ($categoriesGlobal as $category)
+                                  <li class="header__category-list-item item-has-submenu">
+                                    <a href="{{url('/category-products/'.$category->id)}}" class="header__category-list-item-link">
+                                        <img src="{{asset('backend/images/category/'.$category->image)}}" alt="category">
+                                        {{$category->name}}
                                     </a>
                                     <ul class="header__nav-item-category-submenu">
-                                        <li class="header__category-submenu-item">
-                                            <a href="{{url('/sub-category-products')}}" class="header__category-submenu-item-link">
-                                                Test Subcategory
+                                     @foreach ($category->subcategory as $subCategory)
+                                           <li class="header__category-submenu-item">
+                                            <a href="{{url('/sub-category-products/'.$subCategory->id)}}" class="header__category-submenu-item-link">
+                                                 {{$subCategory->name}}
                                             </a>
-                                        </li>
+                                        </li> 
+                                     @endforeach
+                                        
                                     </ul>
-                                </li>
+                                </li>  
+                               @endforeach
                             </ul>
                         </div>
                     </div>

@@ -15,12 +15,12 @@ Route:: get('/',[frontendcontroller::class,'index']);
 Route:: get('/product-dettails/{slug}',[frontendcontroller::class,'productDettails']);
 Route:: get('/shop',[frontendcontroller::class,'shop']);
 Route:: get('/return',[frontendcontroller::class,'return']);
-Route:: get('/category-products',[frontendcontroller::class,'categoryProducts']);
-Route:: get('/sub-category-products',[frontendcontroller::class,'subCategoryProducts']);
+Route:: get('/category-products/{id}',[frontendcontroller::class,'categoryProducts']);
+Route:: get('/sub-category-products/{id}',[frontendcontroller::class,'subCategoryProducts']);
 Route:: get('/checkout',[frontendcontroller::class,'checkout']);
 Route:: get('/view-cart',[frontendcontroller::class,'viewCart']);
 Route:: get('/Product-Details',[frontendcontroller::class,'productDetails']);
-Route:: get('/View-All',[frontendcontroller::class,'viewAll']);
+Route:: get('/View-All/{type}',[frontendcontroller::class,'viewAll']);
 
 //policy
 Route:: get('/privacy-policy',[frontendcontroller::class,'privacyPolicy']);
@@ -32,6 +32,8 @@ Route:: get('/contact-us',[frontendcontroller::class,'contactUs']);
 
 //add to cart
 Route:: get('/add-to-cart/{id}',[frontendcontroller::class,'addToCart']);
+Route:: post('/add-to-cart-dettails/{id}',[frontendcontroller::class,'addToCartDettails']);
+Route:: get('/cart-Delete/{id}',[frontendcontroller::class,'addToCartDelete']);
 
 //Admin login
 Route::get('/admin/login',[Admincontroller::class,'adminlogin']);

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Products;
+use App\Models\subCategory;
 use Illuminate\Http\Request;
 
 class frontendcontroller extends Controller
@@ -20,7 +21,9 @@ class frontendcontroller extends Controller
     }
     public function shop()
     {
-        return view ('shop');
+        $products = Products::orderBy('id', 'desc')->get();
+         $productsCount = Products::orderBy('id', 'desc')->count();
+        return view ('shop',compact('products','productsCount'));
     }
     public function return()
     {
@@ -29,13 +32,16 @@ class frontendcontroller extends Controller
     public function categoryProducts($id)
     {   
         $category = Category::find($id);
-        $product = Products::where('cate_id',$id)->get();
+        $products = Products::where('cate_id',$id)->get();
         $productsCount = Products::where('cate_id',$id)->count();
-        return view ('categoryproducts',compact('product','category','productsCount'));
+        return view ('categoryproducts',compact('products','category','productsCount'));
     }
-    public function subCategoryProducts()
+    public function subCategoryProducts($id)
     {
-        return view ('subcategoryproducts');
+        $subCategory = subCategory::find($id);
+        $products = Products::where('sub_cat_id',$id)->get();
+        $productsCount = Products::where('sub_cat_id',$id)->count();
+        return view ('subcategoryproducts',compact('products','subCategory','productsCount'));
     }
 
     public function checkout()
@@ -76,9 +82,11 @@ class frontendcontroller extends Controller
         $categories = Category::orderBy('slug','desc')->get();
         return view ('details', compact('product','categories'));
     }
-    public function viewAll()
+    public function viewAll($type)
     {
-        return view ('viewall');
+         $products = Products::where('product_type', $type)->get();
+         $productsCount = Products::where('product_type', $type)->count();
+        return view ('viewall',compact('products', 'type', 'productsCount'));
     }
 
     //cart function
@@ -110,4 +118,53 @@ class frontendcontroller extends Controller
         
         return redirect()->back();
     }
+
+   
+    public function addToCartDettails(Request $request, $id)
+
+    {
+    $cartProduct = Cart::where('product_id', $id)
+        ->where('ip_address', $request->ip())
+        ->orderBy('id', 'desc')
+        ->first();
+
+    $product = Products::find($id);
+
+    if ($cartProduct == null) {
+        $cart = new Cart();
+        $cart->ip_address = $request->ip();
+        $cart->product_id = $product->id;
+        $cart->qty = 1;
+        $cart->color = $request->color;
+        $cart->size = $request->size;
+
+        if ($product->discount_price == null) {
+            $cart->price = $product->regular_price;
+        } elseif ($product->discount_price != null) {
+            $cart->price = $product->discount_price;
+        }
+
+        $cart->save();
+    }
+     elseif($cartProduct != null){
+            $cartProduct->qty =$cartProduct->qty + $request->qty ;
+            $cartProduct->color = $request->color;
+            $cartProduct->size = $request->size;
+            $cartProduct->save();
+        }
+        
+      if($request->action == "addToCart"){
+            return redirect()->back();
+        }
+         if($request->action == "buyNow"){
+            return redirect('/checkout');
+        }
+}
+   public function addToCartDelete($id)
+     {
+        $cart = Cart::find($id);
+        $cart->delete();
+        return redirect()->back();
+     }
+
 }

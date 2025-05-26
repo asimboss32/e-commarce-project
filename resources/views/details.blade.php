@@ -1,3 +1,4 @@
+
 @extends('master')
 @section('content')
 <section class="product-details-section">
@@ -37,7 +38,8 @@
                                 </div>
                                 
                                 
-                                <form action="" method="POST"><div class="product-details-select-items-wrap">
+                                <form action="{{url('/add-to-cart-dettails/'.$product->id)}}" method="POST"><div class="product-details-select-items-wrap">
+                                    @csrf
                                     @foreach ($product->color as $colorName)
                                         <div class="product-details-select-item-outer">
                                         <input type="radio" name="color" id="color" value="{{$colorName->name}}" class="category-item-radio">
@@ -176,3 +178,24 @@
     </div>
 </section>
 @endsection
+
+@push('script')
+    <script>
+        var qtyInput = document.getElementById('qty');
+
+        var plusBtn = document.querySelector('.increment-btn');
+         var minusBtn = document.querySelector('.decrement-btn');
+
+        plusBtn.addEventListener('click', function(){
+            if(parseInt (qtyInput.value)<5){
+                qtyInput.value = parseInt(qtyInput.value)+1;
+            }
+        })
+         minusBtn.addEventListener('click', function(){
+            if(parseInt (qtyInput.value)>1){
+                qtyInput.value = parseInt(qtyInput.value)-1;
+            }
+        })
+
+    </script>
+@endpush
