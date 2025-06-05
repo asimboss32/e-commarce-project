@@ -22,6 +22,10 @@ Route:: get('/view-cart',[frontendcontroller::class,'viewCart']);
 Route:: get('/Product-Details',[frontendcontroller::class,'productDetails']);
 Route:: get('/View-All/{type}',[frontendcontroller::class,'viewAll']);
 
+// search products
+
+Route:: get('/search-products',[frontendcontroller::class,'searchProducts']);
+
 //policy
 Route:: get('/privacy-policy',[frontendcontroller::class,'privacyPolicy']);
 Route:: get('/terms-conditions',[frontendcontroller::class,'termsConditions']);
@@ -34,6 +38,13 @@ Route:: get('/contact-us',[frontendcontroller::class,'contactUs']);
 Route:: get('/add-to-cart/{id}',[frontendcontroller::class,'addToCart']);
 Route:: post('/add-to-cart-dettails/{id}',[frontendcontroller::class,'addToCartDettails']);
 Route:: get('/cart-Delete/{id}',[frontendcontroller::class,'addToCartDelete']);
+
+//order confirmation routes
+Route:: post('/confirm-order',[frontendcontroller::class,'confirmOrder']);
+Route:: get('/order-confirmed/{invoiceId}',[frontendcontroller::class,'thankYou']);
+
+
+
 
 //Admin login
 Route::get('/admin/login',[Admincontroller::class,'adminlogin']);

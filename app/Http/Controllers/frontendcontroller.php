@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Models\Category;
+use App\Models\order;
+use App\Models\orderdettails;
 use App\Models\Products;
 use App\Models\subCategory;
 use Illuminate\Http\Request;
@@ -19,10 +21,18 @@ class frontendcontroller extends Controller
        $categories = Category::orderBy('id','desc')->get();
        return view('index',compact('hotProducts','newProducts','ragularProducts','discountProducts','categories'));
     }
-    public function shop()
+    public function shop(Request $request)
     {
-        $products = Products::orderBy('id', 'desc')->get();
-         $productsCount = Products::orderBy('id', 'desc')->count();
+        if(isset($request->cate_id)){
+          $products = Products::orderBy('id','desc')->where('cate_id', $request->cate_id)->get();
+        }
+         elseif(isset($request->sub_cat_id)){
+          $products = Products::orderBy('id', 'desc')->where('sub_cat_id',$request->sub_cat_id)->get();
+        }
+        else{
+
+        }
+         $productsCount = $products->count();
         return view ('shop',compact('products','productsCount'));
     }
     public function return()
@@ -42,6 +52,13 @@ class frontendcontroller extends Controller
         $products = Products::where('sub_cat_id',$id)->get();
         $productsCount = Products::where('sub_cat_id',$id)->count();
         return view ('subcategoryproducts',compact('products','subCategory','productsCount'));
+    }
+
+    public function searchProducts(Request $request)
+    {
+        $products = Products::where('name', 'LIKE', '%'.$request->search.'%')->get();
+        $productsCount = $products->count();
+        return view('searchProducts', compact('products', 'productsCount'));
     }
 
     public function checkout()
@@ -167,4 +184,58 @@ class frontendcontroller extends Controller
         return redirect()->back();
      }
 
+    //  confirm order
+
+    public function confirmOrder(Request $request)
+    {
+        $order = new order();
+
+        $previousOrder = order::orderBy('id','desc')->first();
+
+        if($previousOrder == null){
+            $generateInvoice = "XYZ-1";
+            $order->invoiceId = $generateInvoice;
+        }
+           else{
+                $generateInvoice = "XYZ-1".$previousOrder->id+1;
+            $order->invoiceId = $generateInvoice;
+         
+        }
+        $order->c_name = $request->c_name;
+         $order->c_phone = $request->c_phone;
+         $order->address = $request->address;
+         $order->area = $request->area;
+        $order->price = $request->grandTotalHidden;
+
+        $cartProducts = Cart::where('ip_address',$request->ip())->get();
+        if($cartProducts->isNotEmpty()){  
+           $order->save();
+
+
+           foreach($cartProducts as $cart){
+            $orderDettails = new orderdettails();
+
+            $orderDettails->order_id = $order->id;
+              $orderDettails->product_id = $cart->product_id;
+              $orderDettails->size = $cart->size;
+            $orderDettails->color = $cart->color;
+            $orderDettails->qty = $cart->qty;
+            $orderDettails->price = $cart->price;
+
+             $orderDettails->save();
+            $cart->delete();
+
+           }
+        }
+
+        else{
+            return redirect()->back();
+        }
+        return redirect('order-confirmed/'.$generateInvoice);
+    }
+
+    public function thankYou($invoiceId)
+    {
+      return view('thaankyou',compact('invoiceId'));
+    }
 }
