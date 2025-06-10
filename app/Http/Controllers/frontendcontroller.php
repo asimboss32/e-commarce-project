@@ -30,6 +30,7 @@ class frontendcontroller extends Controller
           $products = Products::orderBy('id', 'desc')->where('sub_cat_id',$request->sub_cat_id)->get();
         }
         else{
+            $products = Products::orderBy('id', 'desc')->get();
 
         }
          $productsCount = $products->count();

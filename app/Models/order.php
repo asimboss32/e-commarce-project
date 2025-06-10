@@ -9,4 +9,8 @@ class order extends Model
 {
     use HasFactory;
    protected $guarded = [];
+      public function orderdettails()
+    {
+        return $this->hasMany(orderdettails::class,'order_id','id')->with('Products');
+    }
 }

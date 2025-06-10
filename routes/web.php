@@ -3,9 +3,11 @@
 use App\Http\Controllers\Backend\Admincontroller;
 use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\orderController;
 use App\Http\Controllers\Backend\productController;
 use App\Http\Controllers\Backend\subController;
 use App\Http\Controllers\frontendcontroller;
+use App\Models\order;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -77,3 +79,6 @@ Route::post('/admin/product/Store',[productController::class,'productStore']);
 Route::get('/admin/product/Edite/{id}',[productController::class,'productEdite']);
 Route::post('/admin/product/Update/{id}',[productController::class,'productUpdate']);
 Route::get('/admin/product/Delete/{id}',[productController::class,'productDelete']);
+
+//orders
+Route::get('/admin/All-order/List',[orderController::class,'allOrderList']);
