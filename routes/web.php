@@ -82,3 +82,6 @@ Route::get('/admin/product/Delete/{id}',[productController::class,'productDelete
 
 //orders
 Route::get('/admin/All-order/List',[orderController::class,'allOrderList']);
+Route::get('/admin/order/Edite/{id}',[orderController::class,'orderEdite']);
+Route::post('/admin/order/Update/{id}',[orderController::class,'orderUpdate']);
+Route::get('/admin/order/Update-Status/{status}/{id}',[orderController::class,'orderUpdateStatus']);
