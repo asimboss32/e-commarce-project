@@ -2,7 +2,7 @@
     <div class="footer__top-wrapper">
         <div class="container">
             <a href="index.html" class="footer__brand-logo-outer">
-                <img src="{{asset('/assets/images/logo.png')}}" class="footer__brand-logo-inner" />
+                <img src="{{asset('backend/images/setting/'.$siteSettings->logo)}}" class="footer__brand-logo-inner" />
             </a>
         </div>
     </div>    
@@ -49,7 +49,7 @@
                                     Address:                                   
                                 </p>
                                 <p class="footer__contact-info-list-item-value">
-                                    Uttara, Dhaka                                 
+                                  {{$siteSettings->address}}                             
                                 </p>
                             </li>
                             <li class="footer__contact-info-list-item">
@@ -57,7 +57,7 @@
                                     Phone:                                   
                                 </p>
                                 <a href="tel:0123456857" class="footer__contact-info-list-item-value">
-                                    0123456857
+                                    {{$siteSettings->phone}}
                                 </a>
                             </li>
                             <li class="footer__contact-info-list-item">
@@ -65,7 +65,7 @@
                                     Email:                                   
                                 </p>
                                 <a href="mailto:info@gmail.com" class="footer__contact-info-list-item-value">
-                                    info@gmail.com
+                                    {{$siteSettings->email}}
                                 </a>
                             </li>
                         </ul>
@@ -107,22 +107,22 @@
                         </h4>
                         <ul class="footer__social-list">
                             <li class="footer__social-list-item">
-                                <a href="#" class="footer__social-list-item-lisk">
+                                <a href="{{$siteSettings->facebook}}" class="footer__social-list-item-lisk">
                                     <i class="fab fa-facebook-f"></i>
                                 </a>
                             </li>
                             <li class="footer__social-list-item">
-                                <a href="#" class="footer__social-list-item-lisk">
+                                <a href="{{$siteSettings->twitter}}" class="footer__social-list-item-lisk">
                                     <i class="fab fa-twitter"></i>
                                 </a>
                             </li>
                             <li class="footer__social-list-item">
-                                <a href="#" class="footer__social-list-item-lisk">
+                                <a href="{{$siteSettings->instagram}}" class="footer__social-list-item-lisk">
                                     <i class="fab fa-instagram"></i>
                                 </a>
                             </li>
                             <li class="footer__social-list-item">
-                                <a href="#" class="footer__social-list-item-lisk">
+                                <a href="{{$siteSettings->youtube}}" class="footer__social-list-item-lisk">
                                     <i class="fab fa-youtube"></i>
                                 </a>
                             </li>

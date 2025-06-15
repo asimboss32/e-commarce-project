@@ -49,4 +49,10 @@ class orderController extends Controller
         return redirect()->back();
     }
 
+    public function statusWiseOrder($status)
+    {
+        $orders = order::where('status',$status)->with('orderdettails')->get();
+        return view('Backend.order.status-wise-order-list',compact('orders'));
+    }
+
 }

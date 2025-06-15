@@ -5,6 +5,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\orderController;
 use App\Http\Controllers\Backend\productController;
+use App\Http\Controllers\Backend\settingsController;
 use App\Http\Controllers\Backend\subController;
 use App\Http\Controllers\frontendcontroller;
 use App\Models\order;
@@ -85,3 +86,10 @@ Route::get('/admin/All-order/List',[orderController::class,'allOrderList']);
 Route::get('/admin/order/Edite/{id}',[orderController::class,'orderEdite']);
 Route::post('/admin/order/Update/{id}',[orderController::class,'orderUpdate']);
 Route::get('/admin/order/Update-Status/{status}/{id}',[orderController::class,'orderUpdateStatus']);
+Route::get('/admin/status-wise-order/{status}',[orderController::class,'statusWiseOrder']);
+
+//settings
+Route::get('/admin/general-setting',[settingsController::class,'showSettings']);
+Route::post('/admin/general-setting/update',[settingsController::class,'updateSettings']);
+Route::get('/admin/policies-process',[settingsController::class,'showPolicyProcess']);
+Route::post('/admin/policies-process/update',[settingsController::class,'updatePolicyProcess']);
