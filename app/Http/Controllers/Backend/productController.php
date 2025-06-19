@@ -231,7 +231,7 @@ class ProductController extends Controller
         $product->description = $request->description;
         $product->policy = $request->policy;
         $product->product_type = $request->product_type;
-
+         
         $product->save();
        return redirect()->back();
     }

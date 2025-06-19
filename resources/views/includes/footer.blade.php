@@ -1,7 +1,7 @@
 <footer class="footer-section">
     <div class="footer__top-wrapper">
         <div class="container">
-            <a href="index.html" class="footer__brand-logo-outer">
+            <a href="{{url('/')}}" class="footer__brand-logo-outer">
                 <img src="{{asset('backend/images/setting/'.$siteSettings->logo)}}" class="footer__brand-logo-inner" />
             </a>
         </div>

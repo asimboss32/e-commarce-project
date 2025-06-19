@@ -25,31 +25,34 @@
       <!-- Info boxes -->
       <div class="row">
         <div class="col-12 col-sm-6 col-md-3">
-          <div class="info-box">
+          <a href="{{url('/admin/All-order/List')}}">
+            <div class="info-box">
             <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">CPU Traffic</span>
+              <span class="info-box-text">Total Orders</span>
               <span class="info-box-number">
-                10
-                <small>%</small>
+                {{$totalOrders}}
               </span>
             </div>
             <!-- /.info-box-content -->
           </div>
+          </a>
           <!-- /.info-box -->
         </div>
         <!-- /.col -->
         <div class="col-12 col-sm-6 col-md-3">
-          <div class="info-box mb-3">
+         <a href="{{url('/admin/status-wise-order/pending')}}">
+           <div class="info-box mb-3">
             <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Likes</span>
-              <span class="info-box-number">41,410</span>
+              <span class="info-box-text">Pending Orders</span>
+              <span class="info-box-number">{{$pendingOrders}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
+         </a>
           <!-- /.info-box -->
         </div>
         <!-- /.col -->
@@ -58,28 +61,46 @@
         <div class="clearfix hidden-md-up"></div>
 
         <div class="col-12 col-sm-6 col-md-3">
-          <div class="info-box mb-3">
+         <a href="{{url('/admin/status-wise-order/confirmed')}}">
+           <div class="info-box mb-3">
             <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">Sales</span>
-              <span class="info-box-number">760</span>
+              <span class="info-box-text">Confirmed Orders</span>
+              <span class="info-box-number">{{$confirmedOrders}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
+         </a>
           <!-- /.info-box -->
         </div>
         <!-- /.col -->
         <div class="col-12 col-sm-6 col-md-3">
-          <div class="info-box mb-3">
+          <a href="{{url('/admin/status-wise-order/delivered')}}">
+            <div class="info-box mb-3">
             <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
 
             <div class="info-box-content">
-              <span class="info-box-text">New Members</span>
-              <span class="info-box-number">2,000</span>
+              <span class="info-box-text">Delivered Orders</span>
+              <span class="info-box-number">{{$deliveredOrders}}</span>
             </div>
             <!-- /.info-box-content -->
           </div>
+          </a>
+          <!-- /.info-box -->
+        </div>
+        <div class="col-12 col-sm-6 col-md-3">
+          <a href="/admin/status-wise-order/cancelled">
+            <div class="info-box mb-3">
+            <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Cancelled Orders</span>
+              <span class="info-box-number">{{$cancelledOrders}}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          </a>
           <!-- /.info-box -->
         </div>
         <!-- /.col -->

@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\banner;
 use App\Models\policy;
 use App\Models\SiteSetting;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class settingsController extends Controller
 {
@@ -68,5 +70,36 @@ class settingsController extends Controller
         $policy->save();
         return redirect()->back();
 
+    }
+
+    public function showBanners()
+    {
+        $banners = banner::get();
+        return view('Backend.settings.banner',compact('banners'));
+    }
+
+     public function editeBanners ($id)
+    {
+        $banner = banner::find($id);
+        return view('backend.settings.banner-edite', compact('banner'));
+    }
+
+    public function updateBanners (Request $request, $id)
+    {
+        $banner = banner::find($id);
+
+        if(isset($request->banner_image)){
+            if($banner->banner_image && file_exists('backend/images/setting/'.$banner->banner_image)){
+                unlink('backend/images/setting/'.$banner->banner_image);
+            }
+
+            $imageName = rand().'-banner-'.'.'.$request->banner_image->extension();
+            $request->banner_image->move('backend/images/setting/',$imageName);
+ 
+            $banner->banner_image = $imageName;
+        }
+
+        $banner->save();
+         return redirect('admin/top-banners');
     }
 }

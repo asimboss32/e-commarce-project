@@ -28,11 +28,11 @@ class AppServiceProvider extends ServiceProvider
         view()->composer('*', function ($view) {
            $view->with('cartProducts',Cart::where('ip_address',request()->ip())->with('product')->get()); 
            $view->with('cartCount',Cart::where('ip_address',request()->ip())->with('product')->count()); 
-            $view->with('categoriesGlobal',Category::with('subcategory')->get());
-            $view->with('subCategoriesGlobal',subCategory::get());
-             $view->with('siteSettings', SiteSetting::first());
-            $view->with('topBanners', banner::get());
-            $view->with('termPolicy', policy::first());
+           $view->with('categoriesGlobal',Category::with('subcategory')->get());
+           $view->with('subCategoriesGlobal',subCategory::get());
+           $view->with('siteSettings', SiteSetting::first());
+           $view->with('topBanners', banner::get());
+           $view->with('termPolicy', policy::first());
         });
     }
 }

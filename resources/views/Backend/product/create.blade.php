@@ -92,13 +92,13 @@
                                             <label for="name">Product Discount price*</label>
                                             <input type="number" class="form-control" id="discount_price" name="discount_price" placeholder="Enter Product Discount price" >
                                         </div>
-                                        <div class="form-group">
+                                         <div class="form-group">
                                             <label for="name">Product Description*</label>
-                                            <textarea id="summernote" name="description" class="form-control" required ></textarea>
+                                            <textarea id="summernote" name="description"  class="form-control" required ></textarea>
                                         </div>
-                                        <div class="form-group">
+                                         <div class="form-group">
                                             <label for="name">Product Policy*</label>
-                                            <textarea id="summernote2" name="policy" class="form-control" required ></textarea>
+                                            <textarea id="summernote2" name="policy"  class="form-control" required ></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label for="name">Select Product type</label>

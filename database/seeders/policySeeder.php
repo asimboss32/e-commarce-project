@@ -13,16 +13,17 @@ class policySeeder extends Seeder
      */
     public function run(): void
     {
-        $policy = [
+       $policy = [
             [
-                'privacy_policy' => 'my name is nuralom',
-                'terms_conditions' => 'my name is nuralom',
-                'refund_policy' => 'my name is nuralom',
-                'payment_policy' => 'my name is nuralom',
-                'about_us' => 'my name is nuralom',
-                'return_process' => 'my name is nuralom',
+                'privacy_policy' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis iure earum, eos placeat ratione consequuntur exercitationem rem sunt omnis facilis quam nam ad laborum repellat quae molestiae eligendi qui dignissimos',
+                'terms_conditions' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis iure earum, eos placeat ratione consequuntur exercitationem rem sunt omnis facilis quam nam ad laborum repellat quae molestiae eligendi qui dignissimos',
+                'refund_policy' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis iure earum, eos placeat ratione consequuntur exercitationem rem sunt omnis facilis quam nam ad laborum repellat quae molestiae eligendi qui dignissimos',
+                'payment_policy' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                'about_us' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+                'return_process' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
             ]
         ];
-        policy::insert($policy);
+
+         policy::insert($policy);
     }
 }

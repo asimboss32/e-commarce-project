@@ -93,3 +93,6 @@ Route::get('/admin/general-setting',[settingsController::class,'showSettings']);
 Route::post('/admin/general-setting/update',[settingsController::class,'updateSettings']);
 Route::get('/admin/policies-process',[settingsController::class,'showPolicyProcess']);
 Route::post('/admin/policies-process/update',[settingsController::class,'updatePolicyProcess']);
+Route::get('/admin/top-banners',[settingsController::class,'showBanners']);
+Route::get('/admin/top-banners/edite{id}',[settingsController::class,'editeBanners']);
+Route::post('/admin/top-banners/update{id}',[settingsController::class,'updateBanners']);
