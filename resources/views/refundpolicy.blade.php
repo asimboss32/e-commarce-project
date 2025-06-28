@@ -11,7 +11,7 @@
     <div class="container">
         <div class="privacy-policy-content">
             <div class="contant-des">
-              {{$termPolicy->refund_policy}}
+              {!! $termPolicy->refund_policy !!}
             </div>
         </div>
     </div>
